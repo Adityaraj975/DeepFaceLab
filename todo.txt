@@ -1,0 +1,25 @@
+﻿
+
+
+
+
+
+a0331add513e4e6fae035cb12e4b11e5
+
+                        """
+                        bg_style_power = self.options['bg_style_power'] / 100.0
+                        if bg_style_power != 0 and not self.pretrain:
+                            
+                            gpu_target_dst_style_anti_masked_d, \
+                            gpu_target_dst_style_anti_masked_d2       = self.D_src(gpu_target_dst_style_anti_masked)
+                            
+                            gpu_psd_target_dst_style_anti_masked_d, \
+                            gpu_psd_target_dst_style_anti_masked_d2   = self.D_src(gpu_psd_target_dst_style_anti_masked)
+                            
+                            
+                            gpu_D_src_dst_loss += 
+                        
+                        
+                            (DLoss(gpu_target_src_d_ones      , gpu_target_src_d) + \
+                             DLoss(gpu_pred_src_src_d_zeros   , gpu_pred_src_src_d) ) * 0.5
+                        """    
