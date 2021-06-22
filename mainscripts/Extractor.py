@@ -113,9 +113,9 @@ class ExtractSubprocessor(Subprocessor):
             image_size = self.image_size
             #h, w, c = image.shape
             #start_time = time.time()
-            #print(os.listdir())
-            caffemodel = "_internal/DeepFaceLab/data/Extractor/res10_300x300_ssd_iter_140000.caffemodel"
-            prototext =  "_internal/DeepFaceLab/data/Extractor/deploy.prototxt.txt"
+            print(os.listdir())
+            caffemodel = "DeepFaceLab/data/Extractor/res10_300x300_ssd_iter_140000.caffemodel"
+            prototext =  "DeepFaceLab/data/Extractor/deploy.prototxt.txt"
             #caffemodel = "E:/DeepFaceLab_DirectX12 testing 1006/_internal/DeepFaceLab/res10_300x300_ssd_iter_140000.caffemodel"
             #prototext =  "E:/DeepFaceLab_DirectX12 testing 1006/_internal/DeepFaceLab/deploy.prototxt.txt"
             net = cv2.dnn.readNetFromCaffe( prototext, caffemodel )
