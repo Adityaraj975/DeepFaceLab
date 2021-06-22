@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: onnx-tf
+Version: 1.8.0
+Summary: Tensorflow backend for ONNX (Open Neural Network Exchange).
+Home-page: https://github.com/onnx/onnx-tensorflow/
+Author: Arpith Jacob, Tian Jin, Gheorghe-Teodor Bercea, Wenhao Hu
+Author-email: tian.jin1@ibm.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: onnx (>=1.8.0)
+Requires-Dist: PyYAML
+Requires-Dist: tensorflow-addons
+
+UNKNOWN
+
+
