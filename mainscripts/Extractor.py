@@ -131,7 +131,7 @@ class ExtractSubprocessor(Subprocessor):
             net.setInput(blob)
             detections = net.forward()
 
-
+	    face = np.zeros(image.shape)
             for i in range(0, detections.shape[2]):
                 confidence = detections[0, 0, i, 2]
                 if confidence > 0.6:
@@ -157,7 +157,7 @@ class ExtractSubprocessor(Subprocessor):
                         p = (m-n)//2
                         startY = startY + p
                         endY = endY - p
-                    global face 
+                    #global face 
                     face = image[startY:endY, startX:endX]
                     global output_filepath	
                     output_filepath = final_output_path / f"{filepath.stem}.jpg"
