@@ -131,7 +131,7 @@ class ExtractSubprocessor(Subprocessor):
             net.setInput(blob)
             detections = net.forward()
 
-	    face = np.zeros(image.shape)
+	    face = None
             for i in range(0, detections.shape[2]):
                 confidence = detections[0, 0, i, 2]
                 if confidence > 0.6:
@@ -169,7 +169,8 @@ class ExtractSubprocessor(Subprocessor):
                             continue 
 		
                     cv2_imwrite(output_filepath, face)
-
+	    if face is None:
+		return data
             landmarks1 = extract_face_landmarks(face)
 
             # initialize dlib's face detector (HOG-based) and then create
