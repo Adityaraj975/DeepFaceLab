@@ -67,7 +67,7 @@ class Saveable():
         if filepath.exists():
             result = True
             #d_dumped = filepath.read_bytes()
-            with gzip.open(filepath, 'rb') as file:
+            with open(filepath, 'rb') as file:
                 d = pickle.loads(file)
         else:
             return False
