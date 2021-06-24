@@ -2,7 +2,7 @@ import pickle
 from pathlib import Path
 from core import pathex
 import numpy as np
-import gzip
+
 from core.leras import nn
 
 tf = nn.tf
@@ -66,9 +66,8 @@ class Saveable():
         filepath = Path(filename)
         if filepath.exists():
             result = True
-            #d_dumped = filepath.read_bytes()
-            with open(filepath, 'rb') as file:
-                d = pickle.loads(file)
+            d_dumped = filepath.read_bytes()
+            d = pickle.loads(d_dumped)
         else:
             return False
 
