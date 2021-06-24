@@ -1,4 +1,4 @@
-﻿import traceback
+import traceback
 import math
 import multiprocessing
 import operator
@@ -13,6 +13,7 @@ from mlxtend.image import extract_face_landmarks
 import cv2
 import numpy as np
 from numpy import linalg as npla
+import time 
 
 import facelib
 from core import imagelib
@@ -174,6 +175,9 @@ class ExtractSubprocessor(Subprocessor):
             landmarks1 = extract_face_landmarks(face)
             if(len(np.array(landmarks1).shape) == 0):
                 return data
+            landmarks2 = extract_face_landmarks(image)
+            if(len(np.array(landmarks2).shape) == 0):
+                return data
             # initialize dlib's face detector (HOG-based) and then create
             # the facial landmark predictor
 
@@ -206,21 +210,22 @@ class ExtractSubprocessor(Subprocessor):
              # array
             #shape = predictor(gray, rects)
             #shape = face_utils.shape_to_np(shape)
-
+            t1 = time.time() -t
+            #print(t1)
             data.rects = rects
-            data.landmarks = landmarks1    
+            data.landmarks = landmarks2  
             data.final_output_files.append( output_filepath )
-
+         
             data.faces_detected += 1
             dflimg = DFLJPG.load(output_filepath)
             dflimg.set_face_type(FaceType.toString(face_type))
             dflimg.set_landmarks(face_image_landmarks.tolist())
             dflimg.set_source_filename(filepath.name)
             dflimg.set_source_rect(rects)
-            dflimg.set_source_landmarks(landmarks1.tolist())
+            dflimg.set_source_landmarks(landmarks2.tolist())
             dflimg.set_image_to_face_mat(image_to_face_mat)
             dflimg.save()
-            #print(time.time() - start_time)
+            print(time.time() - start_time)
 
             return data
             #if 'rects' in self.type or self.type == 'all':
