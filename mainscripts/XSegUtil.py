@@ -112,6 +112,8 @@ def apply_xseg(input_path, model_path):
               landmark_tuple.append((x, y))
               #cv2.circle(img, (x, y), 2, (255, 255, 0), -1)
         routes = []
+        if(len(landmark_tuple)==0):
+            continue
         for i in range(15, -1, -1):
             from_coordinate = landmark_tuple[i+1]
             to_coordinate = landmark_tuple[i]
