@@ -5,7 +5,6 @@ import operator
 import os
 import shutil
 import sys
-import time
 from pathlib import Path 
 from mlxtend.image import extract_face_landmarks
 
@@ -13,7 +12,6 @@ from mlxtend.image import extract_face_landmarks
 import cv2
 import numpy as np
 from numpy import linalg as npla
-import time 
 
 import facelib
 from core import imagelib
@@ -210,7 +208,7 @@ class ExtractSubprocessor(Subprocessor):
              # array
             #shape = predictor(gray, rects)
             #shape = face_utils.shape_to_np(shape)
-            t1 = time.time() -t
+            #t1 = time.time() -t
             #print(t1)
             data.rects = rects
             data.landmarks = landmarks2  
@@ -225,7 +223,7 @@ class ExtractSubprocessor(Subprocessor):
             dflimg.set_source_landmarks(landmarks2.tolist())
             dflimg.set_image_to_face_mat(image_to_face_mat)
             dflimg.save()
-            print(time.time() - start_time)
+            #print(time.time() - start_time)
 
             return data
             #if 'rects' in self.type or self.type == 'all':
