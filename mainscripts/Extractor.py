@@ -172,7 +172,7 @@ class ExtractSubprocessor(Subprocessor):
             if face is None:
                 return data
             landmarks1 = extract_face_landmarks(face)
-            if(np.array(landmarks1).shape[0] == 0):
+            if(len(np.array(landmarks1).shape) == 0):
                 return data
             # initialize dlib's face detector (HOG-based) and then create
             # the facial landmark predictor
