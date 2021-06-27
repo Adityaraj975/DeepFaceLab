@@ -165,8 +165,8 @@ class ExtractSubprocessor(Subprocessor):
                         image1 = cv2_imread( output_filepath )
                         if (image1.shape[0] * image1.shape[1]) > area:
                             continue 
-		
-                    cv2_imwrite(output_filepath, face)
+                    if face is not None:
+                        cv2_imwrite(output_filepath, face)
 
             if face is None:
                 return data
