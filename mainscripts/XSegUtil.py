@@ -146,7 +146,7 @@ def apply_xseg(input_path, model_path):
             from_coordinate = routes[i]
             to_coordinate = routes[i+1]
             #img = cv2.line(img, from_coordinate, to_coordinate, (255, 255, 0), 1)
-        mask = np.zeros((img.shape[0], img.shape[1]))
+        mask = np.zeros((imgg.shape[0], imgg.shape[1]))
         mask = cv2.fillConvexPoly(mask, np.array(routes), 1)
         mask = mask.astype('float32')
         #t1 = time.time() - t0
