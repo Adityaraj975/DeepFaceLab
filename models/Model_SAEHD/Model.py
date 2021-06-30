@@ -305,7 +305,7 @@ Examples: df, liae, df-d, df-ud, liae-ud, ...
                     self.model_filename_list += [ [self.D_src, 'GAN.npy'] ]
 
                 # Initialize optimizers
-                lr=e-4
+                lr=1e-4
                 lr_dropout = 0.3 if self.options['lr_dropout'] in ['y','cpu'] and not self.pretrain else 1.0
                 OptimizerClass = nn.AdaBelief if adabelief else nn.RMSprop
                 clipnorm = 1.0 if self.options['clipgrad'] else 0.0
